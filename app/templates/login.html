@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#111827">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>Iniciar sesión | ITDesk</title>
+    <link rel="stylesheet" href="/static/css/estilos.css?v=mobile-1">
+    <script src="/static/js/auth.js" defer></script>
+</head>
+<body>
+    <main class="auth-layout">
+        <section class="brand-panel">
+            <div class="brand">
+                <div class="brand-icon">IT</div>
+                <span>ITDesk</span>
+            </div>
+
+            <div class="brand-content">
+                <span class="eyebrow">CENTRO DE SOPORTE</span>
+                <h1>La tecnología funciona mejor cuando estamos conectados.</h1>
+                <p>
+                    Gestioná tus solicitudes de soporte desde un único lugar,
+                    con seguimiento claro y una experiencia sencilla.
+                </p>
+            </div>
+
+            <div class="brand-footer">
+                Plataforma de gestión de soporte técnico
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-container">
+                <div class="mobile-brand brand">
+                    <div class="brand-icon">IT</div>
+                    <span>ITDesk</span>
+                </div>
+
+                <span class="eyebrow">BIENVENIDO DE NUEVO</span>
+                <h2>Iniciar sesión</h2>
+                <p class="subtitle">
+                    Ingresá tus credenciales para continuar.
+                </p>
+
+                <form id="login-form">
+                    <label for="email">Correo electrónico</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="nombre@empresa.com"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <div class="label-row">
+                        <label for="password">Contraseña</label>
+                    </div>
+
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Ingresá tu contraseña"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <div id="form-message" class="message" role="alert"
+                         aria-live="polite" hidden></div>
+
+                    <button id="submit-button" type="submit" class="primary-button">
+                        Iniciar sesión <span aria-hidden="true">→</span>
+                    </button>
+                </form>
+
+                <p class="form-switch">
+                    ¿Todavía no tenés una cuenta?
+                    <a href="/registro">Crear cuenta</a>
+                </p>
+
+                <p class="legal-note">
+                    Acceso exclusivo para usuarios de ITDesk.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

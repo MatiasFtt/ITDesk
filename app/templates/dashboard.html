@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>Panel | ITDesk</title>
+    <link rel="stylesheet" href="/static/css/estilos.css?v=mobile-1">
+    <script src="/static/js/dashboard.js?v=admin-panel-6" defer></script>
+</head>
+<body class="dashboard-page">
+    <header class="dashboard-header">
+        <a href="/dashboard" class="brand dashboard-brand"><span class="brand-icon">IT</span><span>ITDesk</span></a>
+        <button id="logout-button" class="secondary-button" type="button">Cerrar sesión</button>
+    </header>
+    <main class="dashboard-content">
+        <span class="eyebrow">PANEL PERSONAL</span>
+        <h1>¡Bienvenido a ITDesk!</h1>
+        <p class="subtitle">Tu espacio para gestionar el soporte técnico.</p>
+        <section class="welcome-card">
+            <div class="avatar" id="user-avatar">U</div>
+            <div><p class="card-label">Sesión iniciada como</p><h2 id="user-name">Cargando usuario...</h2>
+                <p id="user-email" class="subtitle"></p><span id="user-role" class="role-label"></span></div>
+        </section>
+        <section id="admin-overview" class="admin-overview" hidden>
+            <div class="section-heading"><div><span class="eyebrow">RESUMEN DEL ÁREA</span><h2>Estado de los tickets</h2></div></div>
+            <div class="admin-analytics">
+                <aside class="admin-kpis">
+                    <article class="kpi-card"><span>Tickets pendientes</span><strong id="kpi-pending">0</strong><small>Esperando atención</small></article>
+                    <article class="kpi-card"><span>Nuevos hoy</span><strong id="kpi-today">0</strong><small>Solicitudes recibidas</small></article>
+                    <article class="kpi-card kpi-complete"><span>Finalizados</span><strong id="kpi-completed">0</strong><small id="ticket-total">0 tickets en total</small></article>
+                </aside>
+                <div class="admin-reports">
+                    <section class="report-card">
+                        <div class="report-heading"><h3>Tickets creados y finalizados</h3><span>Últimos 7 días</span></div>
+                        <div id="ticket-trend" class="ticket-trend" aria-label="Tickets creados y finalizados por día"></div>
+                        <div class="report-legend"><span><i class="legend-created"></i> Creados</span><span><i class="legend-finished"></i> Finalizados</span></div>
+                    </section>
+                    <div class="report-bottom">
+                        <section class="report-card status-report">
+                            <h3>Tickets por estado</h3>
+                            <div class="status-chart-row">
+                                <div id="ticket-chart" class="ticket-chart" role="img" aria-label="Distribución de tickets por estado"></div>
+                                <ul id="ticket-legend" class="ticket-legend"></ul>
+                            </div>
+                        </section>
+                        <section class="report-card priority-report">
+                            <h3>Tickets abiertos por prioridad</h3>
+                            <div id="priority-summary" class="priority-summary"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tickets-section">
+            <div class="section-heading">
+                <div><span class="eyebrow">CENTRO DE SOPORTE</span><h2 id="tickets-heading">Mis tickets</h2></div>
+                <button id="new-ticket-button" class="primary-button" type="button">Crear ticket</button>
+            </div>
+            <div id="dashboard-message" class="message" role="alert" hidden></div>
+            <form id="ticket-form" class="ticket-form" hidden>
+                <h3>Nuevo ticket</h3>
+                <label for="ticket-title">Asunto</label>
+                <input id="ticket-title" name="titulo" minlength="4" maxlength="200" required>
+                <label for="ticket-description">Descripción</label>
+                <textarea id="ticket-description" name="descripcion" minlength="10" maxlength="10000" rows="5" required></textarea>
+                <label for="ticket-department">Departamento</label>
+                <select id="ticket-department" name="departamento_id" required></select>
+                <label for="ticket-priority">Prioridad</label>
+                <select id="ticket-priority" name="prioridad">
+                    <option value="BAJA">Baja</option><option value="MEDIA" selected>Media</option>
+                    <option value="ALTA">Alta</option><option value="CRITICA">Crítica</option>
+                </select>
+                <div class="form-actions"><button class="primary-button" type="submit">Enviar ticket</button>
+                    <button id="cancel-ticket" class="secondary-button" type="button">Cancelar</button></div>
+            </form>
+            <div id="ticket-list" class="ticket-list" aria-live="polite"></div>
+            <section id="ticket-detail" class="ticket-detail" hidden></section>
+        </section>
+    </main>
+</body>
+</html>
